@@ -1,111 +1,104 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Debojani ❤️</title>
+  <meta charset="UTF-8" />
+  <title>debu ❤️</title>
 
-<style>
-body {
-  margin: 0;
-  height: 100vh;
-  background: linear-gradient(135deg,#ff5f8a,#ff99cc);
-  font-family: 'Poppins', sans-serif;
-  overflow: hidden;
-  color: white;
-  text-align: center;
-}
+  <!-- Handwritten font -->
+  <link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
 
-.container {
-  position: relative;
-  z-index: 10;
-  top: 50%;
-  transform: translateY(-50%);
-}
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Indie Flower', cursive;
+      height: 100vh;
+      background: linear-gradient(120deg, #ff9a9e, #fad0c4, #fbc2eb, #a18cd1);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+    }
 
-h1 { font-size: 40px; }
-p { font-size: 20px; margin: 20px; }
+    .card {
+      background: white;
+      padding: 35px;
+      border-radius: 25px;
+      max-width: 450px;
+      text-align: center;
+      box-shadow: 0 20px 40px rgba(0,0,0,0.25);
+      animation: pop 1s ease;
+    }
 
-button {
-  font-size: 20px;
-  padding: 15px 40px;
-  border-radius: 30px;
-  border: none;
-  background: white;
-  color: #ff5f8a;
-  cursor: pointer;
-  margin: 10px;
-}
+    @keyframes pop {
+      from { transform: scale(0.7); opacity: 0; }
+      to { transform: scale(1); opacity: 1; }
+    }
 
-#noBtn { position: absolute; }
+    button {
+      padding: 12px 28px;
+      font-size: 16px;
+      border: none;
+      border-radius: 12px;
+      background: #e63946;
+      color: white;
+      cursor: pointer;
+      margin-top: 15px;
+    }
 
-.heart {
-  position: fixed;
-  bottom: -20px;
-  font-size: 20px;
-  animation: floatUp 6s linear infinite;
-}
+    .note {
+      font-size: 20px;
+      line-height: 1.7;
+    }
 
-@keyframes floatUp {
-  from { transform: translateY(0); opacity: 1; }
-  to { transform: translateY(-100vh); opacity: 0; }
-}
+    .icons {
+      font-size: 24px;
+      margin-bottom: 10px;
+    }
 
-#secret {
-  display: none;
-}
-</style>
+    .heart {
+      position: absolute;
+      font-size: 22px;
+      animation: float 7s linear infinite;
+      opacity: 0.7;
+    }
+
+    @keyframes float {
+      from { transform: translateY(100vh); }
+      to { transform: translateY(-120vh); }
+    }
+  </style>
 </head>
 
 <body>
 
-<audio autoplay loop>
-  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_4b23cfe0c3.mp3" type="audio/mpeg">
-</audio>
+  <!-- floating hearts -->
+  <div class="heart" style="left:10%">❤️</div>
+  <div class="heart" style="left:35%">💖</div>
+  <div class="heart" style="left:60%">💕</div>
+  <div class="heart" style="left:85%">💗</div>
 
-<div class="container" id="main">
-  <h1>Debojani, will you be my Valentine? 💕</h1>
-  <p>You are my favorite part of every day.</p>
+  <div class="card" id="box">
+    <h2>Will you be my Valentine,<br>debu? 💖</h2>
+    <button onclick="openNote()">Yes</button>
+  </div>
 
-  <button onclick="yes()">YES 💖</button>
-  <button id="noBtn" onmouseover="run()">No 🙄</button>
-</div>
-
-<div class="container" id="secret">
-  <h1>I knew you’d say yes 😘</h1>
-  <p>
-    Debojani, you make my world brighter and my heart softer.  
-    I’m so lucky to have you.  
-    Happy Valentine’s Day ❤️
-  </p>
-
-  <h2>📸 Our Moments</h2>
-<img src="photo1.jpg" width="200">
-<img src="photo2.jpg" width="200">
-<img src="photo3.jpg" width="200">
-</div>
-
-<script>
-function yes(){
-  document.getElementById("main").style.display = "none";
-  document.getElementById("secret").style.display = "block";
-}
-
-function run(){
-  const btn = document.getElementById("noBtn");
-  btn.style.left = Math.random()*80 + "vw";
-  btn.style.top = Math.random()*80 + "vh";
-}
-
-// Floating hearts
-setInterval(() => {
-  const heart = document.createElement("div");
-  heart.className = "heart";
-  heart.innerHTML = "❤️";
-  heart.style.left = Math.random()*100 + "vw";
-  heart.style.fontSize = (20 + Math.random()*30) + "px";
-  document.body.appendChild(heart);
-  setTimeout(()=>heart.remove(),6000);
-},300);
-</script>
+  <script>
+    function openNote() {
+      document.getElementById("box").innerHTML = `
+        <div class="icons">😽 💋 🌷 💌</div>
+        <h2>For my love debu ❤️</h2>
+        <p class="note">
+          My beautiful debu,<br><br>
+          I don’t need a special day to love you… but I love that today gives me a reason to say it out loud.<br><br>
+          You make my ordinary days feel special, and my best days feel even better
+          With you, I feel safe, chosen, and deeply loved.<br><br>
+          I cannot imagine a life where you are not part of my everyday.
+          You are my peace, my home, and my forever choice.<br><br>
+          With all my heart,<br>
+          Your gugu        </p>
+      `;
+    }
+  </script>
 
 </body>
 </html>
