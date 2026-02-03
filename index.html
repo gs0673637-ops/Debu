@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Debojani ❤️</title>
+
+<style>
+body {
+  margin: 0;
+  height: 100vh;
+  background: linear-gradient(135deg,#ff5f8a,#ff99cc);
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  color: white;
+  text-align: center;
+}
+
+.container {
+  position: relative;
+  z-index: 10;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+h1 { font-size: 40px; }
+p { font-size: 20px; margin: 20px; }
+
+button {
+  font-size: 20px;
+  padding: 15px 40px;
+  border-radius: 30px;
+  border: none;
+  background: white;
+  color: #ff5f8a;
+  cursor: pointer;
+  margin: 10px;
+}
+
+#noBtn { position: absolute; }
+
+.heart {
+  position: fixed;
+  bottom: -20px;
+  font-size: 20px;
+  animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+  from { transform: translateY(0); opacity: 1; }
+  to { transform: translateY(-100vh); opacity: 0; }
+}
+
+#secret {
+  display: none;
+}
+</style>
+</head>
+
+<body>
+
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/10/30/audio_4b23cfe0c3.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container" id="main">
+  <h1>Debojani, will you be my Valentine? 💕</h1>
+  <p>You are my favorite part of every day.</p>
+
+  <button onclick="yes()">YES 💖</button>
+  <button id="noBtn" onmouseover="run()">No 🙄</button>
+</div>
+
+<div class="container" id="secret">
+  <h1>I knew you’d say yes 😘</h1>
+  <p>
+    Debojani, you make my world brighter and my heart softer.  
+    I’m so lucky to have you.  
+    Happy Valentine’s Day ❤️
+  </p>
+
+  <h2>📸 Our Moments</h2>
+  <p>(You can add your photos here later)</p>
+</div>
+
+<script>
+function yes(){
+  document.getElementById("main").style.display = "none";
+  document.getElementById("secret").style.display = "block";
+}
+
+function run(){
+  const btn = document.getElementById("noBtn");
+  btn.style.left = Math.random()*80 + "vw";
+  btn.style.top = Math.random()*80 + "vh";
+}
+
+// Floating hearts
+setInterval(() => {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random()*100 + "vw";
+  heart.style.fontSize = (20 + Math.random()*30) + "px";
+  document.body.appendChild(heart);
+  setTimeout(()=>heart.remove(),6000);
+},300);
+</script>
+
+</body>
+</html>
